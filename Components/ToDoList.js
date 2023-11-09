@@ -1,46 +1,14 @@
 import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-export default function ToDoList() {
-  const todos = [
-    {
-      task: 'Learn React Native',
-      done: false,
-      key: '1',
-    },
-    {
-      task: 'Learn Redux',
-      done: true,
-      key: '2',
-    },
-    {
-      task: 'Learn React Navigation',
-      done: false,
-      key: '3',
-    },
-    {
-      task: 'Learn React Native Paper',
-      done: false,
-      key: '4',
-    },
-    {
-      task: 'Learn React Native Elements',
-      done: false,
-      key: '5',
-    },
-    {
-      task: 'Learn React Native Vector Icons',
-      done: false,
-      key: '6',
-    },
-  ];
+export default function ToDoList({tasks}) {
+  
   return (
     <ScrollView>
-      {todos.map(todo => (
+      {tasks.map(task => (
         <Pressable
-          style={[styles.task, todo.done && styles.taskDone]}
-          key={todo.key}>
-          <Text style={styles.text}>{todo.task}</Text>
+          style={ ({pressed}) => [styles.task, pressed && styles.taskDone]}>
+          <Text style={styles.text}>{task}</Text>
         </Pressable>
       ))}
     </ScrollView>

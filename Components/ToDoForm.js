@@ -9,6 +9,7 @@ import {
 import React from 'react';
 
 export default function ToDoForm() {
+
   return (
     <View style={styles.container}>
       <TextInput style={styles.input} placeholder="Add a new task" />
@@ -40,9 +41,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   input: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 5,
-    borderBottomColor: '#ccc',
+    borderColor: '#ccc',
     flex: 1,
     marginRight: 10,
   },
