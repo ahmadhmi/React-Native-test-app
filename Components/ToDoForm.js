@@ -8,12 +8,23 @@ import {
 } from 'react-native';
 import React from 'react';
 
-export default function ToDoForm() {
+export default function ToDoForm({addTask}) {
+  const [taskText, setTaskText] = React.useState('');
 
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} placeholder="Add a new task" />
-      <TouchableOpacity style={styles.button}>
+      <TextInput
+        style={styles.input}
+        placeholder="Add a new task"
+        value={taskText}
+        onChangeText={text => setTaskText(text)}
+      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          addTask(taskText);
+          setTaskText('');
+        }}>
         <Text style={styles.buttonText}>Add</Text>
       </TouchableOpacity>
     </View>
